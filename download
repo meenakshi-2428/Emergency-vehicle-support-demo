@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.pyc
+venv/
+.venv/
+*.egg-info/
+
+# Node
+node_modules/
+dist/
+.vite/
+
+# Env files - never commit real secrets
+.env
+!.env.example
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editors
+.vscode/*
+!.vscode/extensions.json
+
+# Docker volumes
+pgdata/
+
+# OSRM map extracts (large binary files - see docs/ARCHITECTURE.md)
+simulation/routes/*.osm.pbf
+osrm-data/

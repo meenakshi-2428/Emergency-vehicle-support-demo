@@ -1,0 +1,31 @@
+version: "3.9"
+
+services:
+  db:
+    image: postgis/postgis:16-3.4
+    container_name: geoagentic-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: geoagentic
+      POSTGRES_PASSWORD: geoagentic
+      POSTGRES_DB: geoagentic
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  # Optional: a truly LOCAL OSRM engine instead of the public demo server.
+  # Requires a one-time map extract first - see docs/ARCHITECTURE.md §4.
+  # Start with: docker compose --profile local-osrm up -d osrm
+  osrm:
+    image: osrm/osrm-backend
+    container_name: geoagentic-osrm
+    profiles: ["local-osrm"]
+    command: osrm-routed --algorithm mld /data/map.osrm
+    volumes:
+      - ./osrm-data:/data
+    ports:
+      - "5000:5000"
+
+volumes:
+  pgdata:

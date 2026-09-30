@@ -1,0 +1,18 @@
+{
+  "type": "Feature",
+  "properties": {
+    "call_sign": "Ambulance #102",
+    "description": "Demo planned route - MG Road towards a hospital, Bengaluru. Replace with your own city's coordinates."
+  },
+  "geometry": {
+    "type": "LineString",
+    "coordinates": [
+      [77.6045, 12.9758],
+      [77.6075, 12.9778],
+      [77.6100, 12.9800],
+      [77.6120, 12.9825],
+      [77.6135, 12.9855],
+      [77.6150, 12.9890]
+    ]
+  }
+}
